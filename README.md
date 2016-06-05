@@ -37,6 +37,20 @@ Just use `Model#find` passing in the hashid instead of the model id:
 @person = Person.find(params[:hashid])
 ```
 
+### To use only selected Models
+
+You need to cofigure use_on_all_model to false. See the details below
+Then you call `Model.hashid` in Models to use hashid
+
+```
+class Dog < ActiveRecord::Base
+  hashid
+end
+
+@dog = Dog.find(params[:hashid])
+```
+
+
 ## Configuration
 
 To customize the Hashids seed and ensure that another user of the gem cannot
@@ -49,6 +63,9 @@ Hashid::Rails.configure do |config|
   # config.alphabet is optional, hashids provides a default
   # alphabet that consists of all characters [a-zA-Z0-9]
   config.alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  # use_on_all_model is optional, default is true
+  # When false, call hashid method in Models to use hashid
+  config.use_on_all_model = true
 end
 ```
 
