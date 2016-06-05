@@ -20,6 +20,10 @@ module Hashid
       @configuration = Configuration.new
     end
 
+    def self.extended(base)
+      Hashid::Rails.configuration.using_model == :all && base.hashid
+    end
+
     def hashid
       extend ClassMethods
       include InstanceMethods
@@ -90,12 +94,13 @@ module Hashid
     end
 
     class Configuration
-      attr_accessor :secret, :length, :alphabet
+      attr_accessor :secret, :length, :alphabet, :using_model
 
       def initialize
         @secret = ''
         @length = 6
         @alphabet = nil
+        @using_model = :all
       end
     end
 
