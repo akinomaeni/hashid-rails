@@ -1,3 +1,4 @@
+require 'hashid/rails/railtie'
 require 'hashid/rails/version'
 require 'hashids'
 require 'active_record'
@@ -90,19 +91,13 @@ module Hashid
     end
 
     class Configuration
-      attr_accessor :secret, :length, :alphabet
-      attr_reader :using_model
+      attr_accessor :secret, :length, :alphabet, :using_model
 
       def initialize
         @secret = ''
         @length = 6
         @alphabet = nil
-        @using_model = nil
-      end
-
-      def using_model=(mode)
-        mode == :all && ActiveRecord::Base.hashid
-        @using_model = mode
+        @using_model = :all
       end
     end
 
