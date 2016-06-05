@@ -91,13 +91,13 @@ module Hashid
     end
 
     class Configuration
-      attr_accessor :secret, :length, :alphabet, :using_model
+      attr_accessor :secret, :length, :alphabet, :use_on_all_model
 
       def initialize
         @secret = ''
         @length = 6
         @alphabet = nil
-        @using_model = :all
+        @use_on_all_model = true
       end
     end
 
