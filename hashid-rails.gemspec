@@ -31,4 +31,5 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'activerecord', '>= 4.0'
   spec.add_runtime_dependency 'hashids', '~> 1.0'
+  spec.add_runtime_dependency 'railties', '>= 4.0'
 end
