@@ -1,4 +1,3 @@
-require 'hashid/rails/railtie'
 require 'hashid/rails/version'
 require 'hashids'
 require 'active_record'
@@ -105,3 +104,9 @@ module Hashid
 end
 
 ActiveRecord::Base.extend Hashid::Rails
+
+if defined?(Rails)
+  require 'hashid/rails/railtie'
+else
+  ActiveRecord::Base.hashid
+end

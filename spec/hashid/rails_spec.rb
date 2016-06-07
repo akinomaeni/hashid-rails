@@ -156,8 +156,6 @@ end
 
 class Model < ActiveRecord::Base
 
-  hashid
-
   def self.columns_hash
     {id: ActiveRecord::ConnectionAdapters::Column.new('id', nil, 'integer', 'integer')}
   end

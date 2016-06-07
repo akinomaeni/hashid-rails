@@ -1,5 +1,3 @@
-require 'rails'
-
 module Hashid
   module Rails
     class Railtie < ::Rails::Railtie #:nodoc:
